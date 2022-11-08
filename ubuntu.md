@@ -35,6 +35,7 @@
 	- [composer](#composer)
 	- [node](#node)
 	- [mysql](#mysql)
+	- [Postgresql](#postgresql)
 	- [C++](#c)
 ---
 
@@ -457,6 +458,46 @@ sudo mysql_secure_installation
 ```
 
 [Volver a lista de contenido](#subir)
+
+
+
+<a name="postgresql"></a>
+### PostgreSql
+
+Instalación de **posgresql** [sitio oficial](https://www.postgresql.org/download/linux/ubuntu/)
+```sh
+sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
+
+wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+
+sudo apt-get update
+
+sudo apt-get -y install postgresql
+```
+
+Instalación de **pgAdmin4** [sitio oficial](https://www.pgadmin.org/download/pgadmin-4-apt/)
+```sh
+
+curl -fsS https://www.pgadmin.org/static/packages_pgadmin_org.pub | sudo gpg --dearmor -o /usr/share/keyrings/packages-pgadmin-org.gpg
+
+sudo sh -c 'echo "deb [signed-by=/usr/share/keyrings/packages-pgadmin-org.gpg] https://ftp.postgresql.org/pub/pgadmin/pgadmin4/apt/$(lsb_release -cs) pgadmin4 main" > /etc/apt/sources.list.d/pgadmin4.list && apt update'
+
+
+sudo apt install pgadmin4
+
+# Solo escritorio.
+sudo apt install pgadmin4-desktop
+
+# Solo web.
+sudo apt install pgadmin4-web 
+
+# Configuracion de uso web.
+sudo /usr/pgadmin4/bin/setup-web.sh
+
+```
+
+[Volver a lista de contenido](#subir)
+
 
 <a name="c"></a>
 ### C++
